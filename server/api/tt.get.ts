@@ -11,8 +11,8 @@ export default defineEventHandler(async (event) => {
     if (process.env.NODE_ENV === 'development') {
         uploadDir = path.join(__dirname, "/tmp/tts");
     }
-    if (!fs.existsSync(uploadDir)){
-        fs.mkdirSync(uploadDir);
+    if (!fs.existsSync('/var/task/tmp/tts')){
+        fs.mkdirSync('/var/task/tmp/tts');
     }
     return uploadDir
 })
