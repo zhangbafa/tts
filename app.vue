@@ -110,7 +110,7 @@ const handleGenerate = async (trial:string)=>{
   const rate = state.rate ? `rate="${state.rate}"` : "";
   const pitch = state.pitch ? `pitch="${(state.pitch*100)+'%'}"` : "";
   const volume = state.volume ? `volume="${(state.volume*100)+'%'}"` : "";
-  const content = trial=='trial' ? state.content.slice(0,5):state.content
+  const content = trial=='trial' ? state.content.slice(0,10):state.content
   const ssml = `
   <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
     <voice name="${state.voice}">
@@ -147,8 +147,9 @@ const handleGenerate = async (trial:string)=>{
 }
 const handlerDownload = ()=>{
   const anchor = document.createElement('a');
-  anchor.href = audioSrc.value
-  anchor.download = audioSrc.value || 'download';
+  const filename = 'files/'+audioSrc.value
+  anchor.href = filename
+  anchor.download = filename || 'download';
   
   // 触发锚点的点击事件以开始下载
   document.body.appendChild(anchor);
@@ -157,27 +158,13 @@ const handlerDownload = ()=>{
   document.body.removeChild(anchor);
 }
 
-const clearBreak=()=>{
-  const result = state.content.replace(/<break[^>]*>/g, '');
-  return result.length
-}
+
 
 const textLenght = computed(()=>{
   const result = state.content.replace(/<break[^>]*>/g, '');
   return 3000 - result.length
 })
 
-// const debouncedUpdateTextLength = useDebounce((value) => {
-//       const result = value.replace(/<break[^>]*>/g, '');
-//       console.log(result.length)
-//       return result.length
-//     }, 500); 
-
-    // 监听输入事件，调用防抖版本的 updateTextLength 方法
-function updateTextLength(event) {
-  // debouncedUpdateTextLength(event.target.value);
-  console.log(event)
-}
 </script>
 
 <template>
@@ -330,7 +317,7 @@ function updateTextLength(event) {
           </div>
         </div>
         <div class="bg-gray-100">
-          <audio :src="audioSrc" controls style="width: 100%;height:45px" />
+          <audio :src="'files/'+audioSrc" controls style="width: 100%;height:45px" />
         </div>
         <div class="flex justify-between">
           <UButton type="submit" color="black" :loading="trialLoading" @click="handleGenerate('trial')">试听</UButton>
