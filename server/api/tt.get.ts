@@ -7,9 +7,9 @@ import { fileURLToPath } from 'url';
 export default defineEventHandler(async (event) => {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-    let uploadDir = path.join(__dirname, "../public");
+    let uploadDir = path.join(__dirname, "../public/mm");
     if (process.env.NODE_ENV === 'development') {
-        uploadDir = path.join(__dirname, "../../public");
+        uploadDir = path.join(__dirname, "../../public/mm");
     }
     if (!fs.existsSync(uploadDir)){
         fs.mkdirSync(uploadDir);
