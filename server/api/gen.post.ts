@@ -35,9 +35,9 @@ const textToSpeech = async (key:string, region:string, ssml:string, filename:str
           ///Users/zhang1/zhang/text-to-speech/.nuxt/dev/public/vBS3WGGau20rL7gMhMWll.mp3
           const __filename = fileURLToPath(import.meta.url);
           const __dirname = path.dirname(__filename);
-          let uploadDir = path.join(__dirname, "../public");
+          let uploadDir = path.join(__dirname, "../public/tts");
           if (process.env.NODE_ENV === 'development') {
-              uploadDir = path.join(__dirname, "../../public");
+              uploadDir = path.join(__dirname, "../../public/tts");
           }
           if (!fs.existsSync(uploadDir)){
               fs.mkdirSync(uploadDir);

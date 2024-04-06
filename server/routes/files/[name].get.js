@@ -5,9 +5,9 @@ export default defineEventHandler(async (event) => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
 
-  let uploadDir = path.join(__dirname, "../public");
+  let uploadDir = path.join(__dirname, "../public/tts");
   if (process.env.NODE_ENV === 'development') {
-      uploadDir = path.join(__dirname, "../../public");
+      uploadDir = path.join(__dirname, "../../public/tts");
   }
 
   const filePath = path.join(uploadDir, event.context.params.name);
