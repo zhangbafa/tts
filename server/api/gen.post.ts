@@ -1,9 +1,11 @@
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 import {nanoid} from 'nanoid'
 import path from 'path';
+import fs from 'fs'
 import { fileURLToPath } from 'url';
 
 export default defineEventHandler(async (event) => {
+ 
   const cookies = parseCookies(event)
   const body = await readBody(event)
   const fileExt = body.ttsAudioFormat.includes('Mp3') ? 'mp3':'wav'
@@ -31,8 +33,19 @@ const textToSpeech = async (key:string, region:string, ssml:string, filename:str
           // const __dirname = path.dirname(__filename);
           // const audioFileNamePath = path.join(__dirname,'public',filename)
           ///Users/zhang1/zhang/text-to-speech/.nuxt/dev/public/vBS3WGGau20rL7gMhMWll.mp3
+          const __filename = fileURLToPath(import.meta.url);
+          const __dirname = path.dirname(__filename);
+          let uploadDir = path.join(__dirname, "../public");
+          if (process.env.NODE_ENV === 'development') {
+              uploadDir = path.join(__dirname, "../../public");
+          }
+          if (!fs.existsSync(uploadDir)){
+              fs.mkdirSync(uploadDir);
+          }
+          const filePath = path.join(uploadDir, filename);
+          // return filePath;∆
 
-          audioConfig = sdk.AudioConfig.fromAudioFileOutput('./public/'+filename);
+          audioConfig = sdk.AudioConfig.fromAudioFileOutput(filePath);
         }
         const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
         synthesizer.speakSsmlAsync(
