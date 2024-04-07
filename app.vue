@@ -104,7 +104,7 @@ const genLoading = ref(false)
 const handleGenerate = async (trial:string)=>{
   const toast = useToast()
   const result = state.content.replace(/<break[^>]*>/g, '');
-  if(result.length>3){
+  if(result.length>3000){
     toast.add({title:'字数超限',description:'最多3000字符',color:'red'})
     return false
 
