@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto w-4/6 pb-10">
+    <div class="mx-auto w-11/12 md:w-4/6 pb-10">
     <div class="text-3xl text-gray-800 text-center font-bold mt-14">快速入门</div>
     <div class="mt-8">
       <div class="flex justify-start">

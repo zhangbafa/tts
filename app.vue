@@ -42,7 +42,7 @@ const state = reactive({
   volume: 1,
   pitch: 0,
   silence: 1000,
-  content: '',
+  content: '五星出东方,利中国',
 });
 
 const setStyleAndRole = (data: any) => {
@@ -102,7 +102,13 @@ const audioSrc = ref()
 const trialLoading = ref(false)
 const genLoading = ref(false)
 const handleGenerate = async (trial:string)=>{
-  
+  const toast = useToast()
+  const result = state.content.replace(/<break[^>]*>/g, '');
+  if(result.length>3){
+    toast.add({title:'字数超限',description:'最多3000字符',color:'red'})
+    return false
+
+  }
   trial=='trial' ? trialLoading.value = true:genLoading.value = true
   const style = state.style ? `style="${state.style}"` : "";
   const role = state.role ? `role="${state.role}"` : "";
@@ -131,31 +137,51 @@ const handleGenerate = async (trial:string)=>{
   });
 
   type result = z.infer<typeof resultSchema>;
-  const toast = useToast()
-  const data:result = await $fetch('/api/gen', {
+
+  const data:result = await $fetch('/api/tts', {
     method: 'post',
+    // responseType:'arrayBuffer',
     body: {ssml:ssml,ttsAudioFormat:state.quality}
   })
-    
+  // console.log(data)
+  const buffer = new Uint8Array(data.url.data);
+  const blob = new Blob([buffer]);
+  const url = window.URL.createObjectURL(blob);
+
+
+  
+
+
+  audioSrc.value = url
+  trial=='trial' ? trialLoading.value = false:genLoading.value = false
   if(data.code===200){
-    trial=='trial' ? trialLoading.value = false:genLoading.value = false
     toast.add({ title: '转换成功' })
-    audioSrc.value = data.url
+    // audioSrc.value = data.url
   }else{
     toast.add({ title: '转换成功' })
   }
 }
 const handlerDownload = ()=>{
-  const anchor = document.createElement('a');
-  const filename = 'files/'+audioSrc.value
-  anchor.href = filename
-  anchor.download = filename || 'download';
+  // const anchor = document.createElement('a');
+  // const filename = 'files/'+audioSrc.value
+  // anchor.href = filename
+  // anchor.download = filename || 'download';
   
-  // 触发锚点的点击事件以开始下载
-  document.body.appendChild(anchor);
-  anchor.click();
-  // 下载后移除元素
-  document.body.removeChild(anchor);
+  // // 触发锚点的点击事件以开始下载
+  // document.body.appendChild(anchor);
+  // anchor.click();
+  // // 下载后移除元素
+  // document.body.removeChild(anchor);
+
+  let file_ext = 'mp3'
+  if(state.quality==='Raw16Khz16BitMonoPcm') file_ext = 'wav'
+  var link = document.createElement('a');
+  link.href =audioSrc.value
+  // quality: "Audio16Khz32KBitRateMonoMp3",
+  link.download = `${new Date().getTime()}.${file_ext}`
+  document.body.append(link);
+  link.click();
+  link.remove();
 }
 
 
@@ -317,7 +343,7 @@ const textLenght = computed(()=>{
           </div>
         </div>
         <div class="bg-gray-100">
-          <audio :src="'files/'+audioSrc" controls style="width: 100%;height:45px" />
+          <audio :src="audioSrc" controls style="width: 100%;height:45px" />
         </div>
         <div class="flex justify-between">
           <UButton type="submit" color="black" :loading="trialLoading" @click="handleGenerate('trial')">试听</UButton>

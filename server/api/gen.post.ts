@@ -3,6 +3,8 @@ import {nanoid} from 'nanoid'
 import path from 'path';
 import fs from 'fs'
 import { fileURLToPath } from 'url';
+import PassThrough from 'stream'
+import { Buffer } from 'buffer';
 
 export default defineEventHandler(async (event) => {
  
@@ -13,7 +15,8 @@ export default defineEventHandler(async (event) => {
   const key = process.env.SPEECH_KEY as string
   const region = process.env.SPEECH_REGION as string
   const result = await textToSpeech(key,region,body.ssml,audioFileName,body.ttsAudioFormat)
-  return result
+  console.log(result)
+  return {id:result}
 })
 
 function sleep(ms:number) {
@@ -53,7 +56,20 @@ const textToSpeech = async (key:string, region:string, ssml:string, filename:str
             result => {
                 if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
                     console.log("SynthesizingAudioCompleted result");
-                    resolve({code:200,url:filename,message:'success'});
+                    const { audioData } = result;
+                    // console.log(audioData)
+                    // resolve(audioData)
+                    
+                    // const bufferStream = new PassThrough();
+                    // bufferStream.end(Buffer.from(audioData));
+                    // resolve(bufferStream);
+
+                    const blob = new Blob([result.audioData], { type: "audio/mpeg" });
+                    const url = window.URL.createObjectURL(blob);
+                    console.log('url')
+                    console.log(url)
+
+                    // resolve({code:200,url:filename,message:'success',blob:bufferStream});
                   } else {
                     console.error("Speech synthesis canceled, " + result.errorDetails +
                         "\nDid you set the speech resource key and region values?");

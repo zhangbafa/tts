@@ -23,7 +23,7 @@ const items = [{
 </script>
 
 <template>
-    <div class="mx-auto w-4/6 mb-14">
+    <div class="mx-auto w-11/12 md:w-4/6 mb-14">
         <div class="text-3xl text-gray-080 text-center font-bold mt-20 mb-20">常见问题</div>
         <UAccordion
         color="white"
