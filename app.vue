@@ -2,6 +2,7 @@
 import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
 import Faq from './components/Faq.vue'
+import Example from './components/Example.vue'
 import { useDebounce } from '@vueuse/core';
 
 import {
@@ -42,7 +43,7 @@ const state = reactive({
   volume: 1,
   pitch: 0,
   silence: 1000,
-  content: '五星出东方,利中国',
+  content: '',
 });
 
 const setStyleAndRole = (data: any) => {
@@ -353,6 +354,8 @@ const textLenght = computed(()=>{
       </UForm>
     </div>
   </div>
+
+  <Example />
   
   <!-- Feedback -->
   <Feedback/>
