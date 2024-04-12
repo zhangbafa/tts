@@ -1248,7 +1248,7 @@ const styles_obj = {
     style: "hopeful",
     description:
       "表达一种温暖且渴望的语气",
-  },
+},
   "lyrical": { style: "lyrical", description: "以优美又带感伤的方式表达情感" },
   "narration-professional": {
     style: "narration-professional",
