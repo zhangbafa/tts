@@ -84,6 +84,10 @@ watch(
 
 const content = ref();
 const textareaRef = ref();
+const textLenght = computed(()=>{
+  const result = state.content.replace(/<break[^>]*>/g, '');
+  return 3000 - result.length
+})
 const handleInsertPause = async (time: string) => {
   let el = textareaRef.value.textarea;
   let cursurPosition = -1;
@@ -104,8 +108,8 @@ const trialLoading = ref(false)
 const genLoading = ref(false)
 const handleGenerate = async (trial:string)=>{
   const toast = useToast()
-  const result = state.content.replace(/<break[^>]*>/g, '');
-  if(result.length>3000){
+  const str_num = state.content.replace(/<break[^>]*>/g, '');
+  if(str_num.length>3000){
     toast.add({title:'字数超限',description:'最多3000字符',color:'red'})
     return false
 
@@ -144,14 +148,11 @@ const handleGenerate = async (trial:string)=>{
     // responseType:'arrayBuffer',
     body: {ssml:ssml,ttsAudioFormat:state.quality}
   })
+  
   // console.log(data)
   const buffer = new Uint8Array(data.url.data);
   const blob = new Blob([buffer]);
   const url = window.URL.createObjectURL(blob);
-
-
-  
-
 
   audioSrc.value = url
   trial=='trial' ? trialLoading.value = false:genLoading.value = false
@@ -161,6 +162,13 @@ const handleGenerate = async (trial:string)=>{
   }else{
     toast.add({ title: '转换成功' })
   }
+
+  $fetch('/api/posts',{
+    method:'GET',
+    query:{num: str_num.length}
+  })
+
+
 }
 const handlerDownload = ()=>{
   // const anchor = document.createElement('a');
@@ -187,17 +195,16 @@ const handlerDownload = ()=>{
 
 
 
-const textLenght = computed(()=>{
-  const result = state.content.replace(/<break[^>]*>/g, '');
-  return 3000 - result.length
-})
+
 
 </script>
 
 <template>
   <div class="h-16 text-2xl bg-white flex justify-start  items-center border-b">
-    <div class="mx-auto w-full md:w-10/12 text-left " style="text-transform: uppercase;">
-      👹 文音通
+    <div class="mx-auto w-full md:w-10/12 text-left flex items-center text-3x">
+      <span class="bungee-spice-regular">TTSBOT文音通</span>
+      <!-- <span style="font-size: 40px">🤖</span> -->
+      
     </div>
   </div>
   <div class="flex flex-col lg:flex-row md:p-4 md:w-5/6 mx-auto">
@@ -378,3 +385,10 @@ const textLenght = computed(()=>{
   <Faq/>
   <UNotifications />
 </template>
+
+
+<style>
+
+
+
+</style>

@@ -12,11 +12,15 @@
   "dependencies": {
     "@nuxt/ui": "^2.15.1",
     "@vueuse/core": "^10.9.0",
+    "dayjs": "^1.11.10",
     "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
     "nanoid": "^5.0.6",
     "nuxt": "^3.11.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/supabase": "^1.2.0"
   }
 }
