@@ -5,24 +5,13 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: '登录'
+  title: 'Sign up'
 })
 
-const fields = [{
-  name: 'email',
-  type: 'text',
-  label: 'Email',
-  placeholder: 'Enter your email'
-}, {
-  name: 'password',
-  label: 'Password',
-  type: 'password',
-  placeholder: 'Enter your password'
-}]
 
 const state = reactive({
   email: '',
-  password: ''
+  password: '',
 })
 
 const validate = (state: any) => {
@@ -32,36 +21,25 @@ const validate = (state: any) => {
   return errors
 }
 
-const providers = [{
-  label: 'Continue with GitHub',
-  icon: 'i-simple-icons-github',
-  color: 'white' as const,
-  click: () => {
-    console.log('Redirect to GitHub')
-  }
-}]
-const toast = useToast()
 const loading = ref(false)
-const githubloading = ref(false)
-
+const githubLoading = ref(false)
+const toast = useToast()
 async function onSubmit () {
-  loading.value = true
-  let { data, error } = await supabase.auth.signInWithPassword({
-    email: state.email,
-    password: state.password
-  })
-  loading.value = false
-  if(error){
-    toast.add({title:'登录失败',description:'邮箱或密码错误',color:'red'})
-  }else{
-    navigateTo('/free')
-  }
-  console.log(data,error)
-
+    loading.value = true
+    const {data,error} = await supabase.auth.signUp({
+        email: state.email,
+        password: state.password
+    })
+    loading.value = false
+    if(error){
+        toast.add({title:'注册失败',description:error.toString(),color:'red'})
+    }else{
+        toast.add({title:'注册成功',description: '请登录邮箱验证账号'})
+    }
 }
 
 const signInWithOAuth = async () => {
-  githubloading.value = true
+    githubLoading.value = true
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'github',
     options: {
@@ -80,15 +58,17 @@ const signInWithOAuth = async () => {
       <div class="mb-2 pointer-events-none">
         <span class="i-heroicons-lock-closed w-8 h-8 flex-shrink-0 text-gray-900 dark:text-white"></span>
       </div>
-      <p class="text-2xl text-gray-900 dark:text-white font-bold">Welcome back
+      <p class="text-2xl text-gray-900 dark:text-white font-bold">创建一个账号
       </p>
-      <p class="text-gray-500 dark:text-gray-400 mt-1"> 没有账号? 
-        <NuxtLink to="/signup" class="text-primary font-medium">
-          注册
+      <p class="text-gray-500 dark:text-gray-400 mt-1"> 已经有账号了？
+        <NuxtLink to="/login" class="text-primary font-medium">
+          登录
         </NuxtLink>. 
       </p>
     </div>
     <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
+    
+
     <UFormGroup label="邮箱" name="email">
       <UInput v-model="state.email" placeholder="请输入邮箱"/>
     </UFormGroup>
@@ -97,8 +77,7 @@ const signInWithOAuth = async () => {
       <UInput v-model="state.password" type="password" placeholder="请输入密码"/>
     </UFormGroup>
 
-    <UButton type="submit" label="登录" block :loading="loading" :ui="{ rounded: 'rounded-full' }">
-      
+    <UButton type="submit" label="注册账号" block :loading="loading" :ui="{ rounded: 'rounded-full' }">
       <template #trailing>
         <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
       </template>
@@ -109,10 +88,11 @@ const signInWithOAuth = async () => {
   <UButton
     icon="i-simple-icons-github"
     color="white"
-    :loading="githubloading"
     variant="solid"
     label="使用 GitHub 登录"
+    :trailing="false"
     :ui="{ rounded: 'rounded-full' }"
+    :loading="githubLoading"
     block
     @click="signInWithOAuth"
   />

@@ -13,7 +13,7 @@ watch(user, () => {
 </script>
 
 <template>
-  <div>Waiting for login...</div>
+  <div class="text-sm text-gray-600">Waiting for login...</div>
   <pre>
     <!-- {{ cookieName }}
     {{ redirectPath }} -->

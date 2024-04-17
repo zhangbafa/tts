@@ -13,7 +13,7 @@ const textToSpeech = async (key:string, region:string, ssml:string, filename:str
     
     return new Promise((resolve, reject) => {
         const speechConfig = sdk.SpeechConfig.fromSubscription(key, region);
-        // speechConfig.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat[ttsAudioFormat]
+        speechConfig.speechSynthesisOutputFormat = 3
 
         let audioConfig = null;
         if (filename) {

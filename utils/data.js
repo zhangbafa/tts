@@ -54,6 +54,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
         "DisplayName": "Xiaoxiao",
+        "Description": '活泼、温暖的声音，具有多种场景风格和情感。',
         "LocalName": "晓晓",
         "ShortName": "zh-CN-XiaoxiaoNeural",
         "Gender": "Female",
@@ -88,6 +89,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
         "DisplayName": "Yunxi",
+        "Description": '活泼、阳光的声音，具有丰富的情感，可用于许多对话场景。',
         "LocalName": "云希",
         "ShortName": "zh-CN-YunxiNeural",
         "Gender": "Male",
@@ -169,11 +171,12 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunyangNeural)",
         "DisplayName": "Yunyang",
+        "Description": '专业、流利的声音，具有多种场景风格。',
         "LocalName": "云扬",
         "ShortName": "zh-CN-YunyangNeural",
         "Gender": "Male",
         "Locale": "zh-CN",
-        "LocaleName": "Chinese (Mandarin, Simplified)",
+        "Localeame": "Chinese (Mandarin, Simplified)",
         "StyleList": [
             "customerservice",
             "narration-professional",
@@ -187,6 +190,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaochenNeural)",
         "DisplayName": "Xiaochen",
+        "Description": '休闲、放松的声音，用于自发性对话和会议听录。',
         "LocalName": "晓辰",
         "ShortName": "zh-CN-XiaochenNeural",
         "Gender": "Female",
@@ -200,6 +204,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaohanNeural)",
         "DisplayName": "Xiaohan",
+        "Description": '温暖、甜美、富有感情的声音，可用于许多对话场景。',
         "LocalName": "晓涵",
         "ShortName": "zh-CN-XiaohanNeural",
         "Gender": "Female",
@@ -241,6 +246,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaomoNeural)",
         "DisplayName": "Xiaomo",
+        "Description": '清晰、放松的声音，具有丰富的角色扮演和情感，适合音频书籍。',
         "LocalName": "晓墨",
         "ShortName": "zh-CN-XiaomoNeural",
         "Gender": "Female",
@@ -278,6 +284,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoqiuNeural)",
         "DisplayName": "Xiaoqiu",
+        "Description": '知性、舒适的声音，适合阅读长篇内容。',
         "LocalName": "晓秋",
         "ShortName": "zh-CN-XiaoqiuNeural",
         "Gender": "Female",
@@ -291,6 +298,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoruiNeural)",
         "DisplayName": "Xiaorui",
+        "Description": '成熟、睿智的声音，具有丰富的情感，适合音频书籍。',
         "LocalName": "晓睿",
         "ShortName": "zh-CN-XiaoruiNeural",
         "Gender": "Female",
@@ -310,6 +318,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoshuangNeural)",
         "DisplayName": "Xiaoshuang",
+        "Description": '可爱、愉悦的声音，可应用于许多儿童相关场景。',
         "LocalName": "晓双",
         "ShortName": "zh-CN-XiaoshuangNeural",
         "Gender": "Female",
@@ -326,6 +335,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoyanNeural)",
         "DisplayName": "Xiaoyan",
+        "Description": '训练有素、舒适的声音，用于客户服务和对话场景。',
         "LocalName": "晓颜",
         "ShortName": "zh-CN-XiaoyanNeural",
         "Gender": "Female",
@@ -339,6 +349,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoyouNeural)",
         "DisplayName": "Xiaoyou",
+        "Description": '天使般的清晰声音，可以应用于许多儿童相关场景。',
         "LocalName": "晓悠",
         "ShortName": "zh-CN-XiaoyouNeural",
         "Gender": "Female",
@@ -431,6 +442,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunyeNeural)",
         "DisplayName": "Yunye",
+        "Description": '成熟、放松的声音，具有多种情感，适合音频书籍。',
         "LocalName": "云野",
         "ShortName": "zh-CN-YunyeNeural",
         "Gender": "Male",
@@ -492,7 +504,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaochenMultilingualNeural)",
         "DisplayName": "Xiaochen Multilingual",
-        "LocalName": "Xiaochen Multilingual",
+        "LocalName": "晓辰-多语言",
         "ShortName": "zh-CN-XiaochenMultilingualNeural",
         "Gender": "Female",
         "Locale": "zh-CN",
@@ -635,7 +647,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoMultilingualNeural)",
         "DisplayName": "Xiaoxiao Multilingual",
-        "LocalName": "Xiaoxiao Multilingual",
+        "LocalName": "萧萧-多语言",
         "ShortName": "zh-CN-XiaoxiaoMultilingualNeural",
         "Gender": "Female",
         "Locale": "zh-CN",
@@ -741,7 +753,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoyuMultilingualNeural)",
         "DisplayName": "Xiaoyu Multilingual",
-        "LocalName": "Xiaoyu Multilingual",
+        "LocalName": "晓玉-多语言",
         "ShortName": "zh-CN-XiaoyuMultilingualNeural",
         "Gender": "Female",
         "Locale": "zh-CN",
@@ -859,7 +871,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunyiMultilingualNeural)",
         "DisplayName": "Yunyi Multilingual",
-        "LocalName": "Yunyi Multilingual",
+        "LocalName": "云依-多语言",
         "ShortName": "zh-CN-YunyiMultilingualNeural",
         "Gender": "Male",
         "Locale": "zh-CN",
@@ -965,6 +977,7 @@ const voices = [
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxuanNeural)",
         "DisplayName": "Xiaoxuan",
+        "Description": '自信、有能力的声音，具有丰富的角色扮演和情感，适合音频书籍。',
         "LocalName": "晓萱",
         "ShortName": "zh-CN-XiaoxuanNeural",
         "Gender": "Female",
@@ -1166,16 +1179,17 @@ const voices = [
 
 
 const language = [
-    { ShortName: 'wuu-CN', LocalName: '中文（上海话，简体）' },
-    { ShortName: 'yue-CN', LocalName: '中文（广东话，简体）' },
-    { ShortName: 'zh-CN', LocalName: '中文（普通话，简体）' },
-    { ShortName: 'zh-CN-henan', LocalName: '中文（河南话，简体）' },
-    { ShortName: 'zh-CN-liaoning', LocalName: '中文（东北话，简体）' },
-    { ShortName: 'zh-CN-shaanxi', LocalName: '中文（陕西话，简体）' },
-    { ShortName: 'zh-TW', LocalName: '中文（台湾话，繁体）' },
-    { ShortName: 'zh-HK', LocalName: '中文（香港话，繁体）' },
-    { ShortName: 'zh-CN-sichuan', LocalName: '中文（四川话，简体）' },
-    { ShortName: 'zh-CN-shandong', LocalName: '中文（山东话，简体）' }
+    { ShortName: 'zh-CN', LocalName: '普通话' },
+    { ShortName: 'wuu-CN', LocalName: '上海话' },
+    { ShortName: 'yue-CN', LocalName: '广东话' },
+    { ShortName: 'zh-CN-henan', LocalName: '河南话' },
+    { ShortName: 'zh-CN-liaoning', LocalName: '东北话' },
+    { ShortName: 'zh-CN-shaanxi', LocalName: '陕西话' },
+    { ShortName: 'zh-TW', LocalName: '台湾话' },
+    { ShortName: 'zh-HK', LocalName: '香港话' },
+    { ShortName: 'zh-CN-sichuan', LocalName: '四川话' },
+    { ShortName: 'zh-CN-shandong', LocalName: '山东话' }
+
 ];
 
 const styles_obj = {
@@ -1303,25 +1317,96 @@ const styles_obj = {
   "unfriendly": { style: "unfriendly", description: "表达一种冷淡无情的语气。" },
 };
 
+const styleList = [
+    {label:'纪录片-旁白',value:'documentary-narration'},
+    {label:'体育解说-兴奋',value:'sports-commentary-excited'},
+    {label:'体育解说',value:'sports-commentary'},
+    {label:'新闻-休闲',value:'newscast-casual'},
+    {label:'实时广告',value:'livecommercial'},
+    {label:'旁白-专业',value:'narration-professional'},
+    {label:'广告-欢快',value:'advertisement-upbeat'},
+    {label:'羡慕',value:'envious'},
+    {label:'同理心',value:'empathetic'},
+    {label:'期待',value:'hopeful'},
+    {label:'喊叫',value:'shouting'},
+    {label:'新闻-正式',value:'newscast-formal'},
+    {label:'不友好',value:'unfriendly'},
+    {label:'恐惧',value:'terrified'},
+    {label:'⏪ 助理',value:'assistant'},
+    {label:'聊天',value:'chat'},
+    {label:'新闻',value:'newscast'},
+    {label:'默认',value:'default'},
+    {label:'沮丧',value:'depressed'},
+    {label:'悲伤',value:'sad'},
+    {label:'愤怒',value:'angry'},
+    {label:'严厉',value:'serious'},
+    {label:'不满',value:'disgruntled'},
+    {label:'愉悦',value:'cheerful'},
+    {label:'害怕',value:'fearful'},
+    {label:'尴尬',value:'embarrassed'},
+    {label:'旁白-放松',value:'narration-relaxed'},
+    {label:'兴奋',value:'excited'},
+    {label:'抱歉',value:'sorry'},
+    {label:'低语',value:'whispering'},
+    {label:'聊天-休闲',value:'chat-casual"'},
+    {label:'🤗 友好',value:'friendly'},
+    {label:'诗歌朗诵',value:'poetry-reading'},
+    {label:'抒情',value:'lyrical'},
+    {label:'温柔',value:'gentle'},
+    {label:'😐 平静',value:'calm'},
+    {label:'撒娇',value:'affectionate'},
+    {label:'客户服务',value:'customerservice'}
+]
+
 const roles_obj = [
     { role: "Girl", description: "女孩" },
     { role: "Boy", description: "男孩" },
-    { role: "YoungAdultFemale", description: "年轻的成年女性" },
-    { role: "YoungAdultMale", description: "年轻的成年男性" },
-    { role: "OlderAdultFemale", description: "年长的成年女性" },
-    { role: "OlderAdultMale", description: "年长的成年男性" },
-    { role: "SeniorFemale", description: "年老女性" },
-    { role: "SeniorMale", description: "年老男性" }
+    { role: "YoungAdultFemale", description: "女青年" },
+    { role: "YoungAdultMale", description: "男青年" },
+    { role: "OlderAdultFemale", description: "女中年" },
+    { role: "OlderAdultMale", description: "男中年" },
+    { role: "SeniorFemale", description: "女老年" },
+    { role: "SeniorMale", description: "男老年" },
+    { role: "Default", description: "默认" },
+    { role: "Narrator", description: "旁白者" },
 ]
 
+const roleList = [
+    { value: "Girl", label: "女孩" },
+    { value: "Boy", label: "男孩" },
+    { value: "YoungAdultFemale", label: "女青年" },
+    { value: "YoungAdultMale", label: "男青年" },
+    { value: "OlderAdultFemale", label: "女中年" },
+    { value: "OlderAdultMale", label: "男中年" },
+    { value: "SeniorFemale", label: "女老年" },
+    { value: "SeniorMale", label: "男老年" },
+    { value: "Default", label: "默认" },
+    { value: "Narrator", label: "旁白者" },
+]
+
+
+// const quality = [
+//     {'option':"16Khz32KBit",'value':'Audio16Khz32KBitRateMonoMp3'},
+//     {'option':"24Khz160KBit",'value':'Audio24Khz160KBitRateMonoMp3'},
+//     {'option':"48Khz192KBit",'value':'Audio48Khz192KBitRateMonoMp3'},
+//     {'option':"16Khz16BitMonoPcm",'value':'Raw16Khz16BitMonoPcm'}
+// ]
 
 const quality = [
-    {'option':"16Khz32KBit",'value':'Audio16Khz32KBitRateMonoMp3'},
-    {'option':"24Khz160KBit",'value':'Audio24Khz160KBitRateMonoMp3'},
-    {'option':"48Khz192KBit",'value':'Audio48Khz192KBitRateMonoMp3'},
-    {'option':"16Khz16BitMonoPcm",'value':'Raw16Khz16BitMonoPcm'}
+    {'option':"16Khz32KBit",'value': 3},//Audio16Khz32KBitRateMonoMp3
+    {'option':"24Khz160KBit",'value': 8},//Audio24Khz160KBitRateMonoMp3
+    {'option':"48Khz192KBit",'value': 22},//Audio48Khz192KBitRateMonoMp3
+    {'option':"16Khz16BitMonoPcm",'value': 14}//Raw16Khz16BitMonoPcm
 ]
 
+// 音速
+// 0-3
+// x-slow 超慢
+// slow 慢
+// medium 中等
+// fast 快
+// x-fast 超快
+// default
 const rate=[
     {'option':'⏪ 0.5x',value:'0.5'},
     {'option':'⏪ 0.6x',value:'0.6'},
@@ -1342,6 +1427,15 @@ const rate=[
     {'option':'⏩ 2x',value:'2'}
 ]
 
+// 音量
+// 0-1.5倍
+// silent 静音
+// x-soft 超轻
+// soft 轻
+// medium 中等
+// loud 大声
+// x-loud 超大声
+// default 默认
 const volume = [
     {'option':'🔽 10%',value: 0.1 },
     {'option':'🔽 30%',value: 0.3 },
@@ -1353,9 +1447,18 @@ const volume = [
     {'option':'🔼 180%',value: 1.8 },
     {'option':'🔼 200%',value: 2 },
 ]
-
+ 
+// 音高
+// 0.5 -1.5 倍，用%表示
+// 常量：常量值：
+// x-low 超低
+// low 低
+// medium 中等
+// high 高
+// x-high 超高
+// default
 const pitch = [
-    {'option':'🔼 Super High pitch (+100%)',value:2},
+    // {'option':'🔼 Super High pitch (+100%)',value:2},
     {'option':'🔼 Super High pitch (+50%)',value:1.5},
     {'option':'🔼 Super High pitch (+25)',value:1.25},
     {'option':'🔼 Super High pitch (+10%)',value:1.1},
@@ -1367,20 +1470,20 @@ const pitch = [
     {'option':'🔽 Slightly low pitch (-50%)',value:0.5}
 ]
 const silence = [
-    {'option':'0ms',value:'0'},
-    {'option':'50ms',value:'50'},
-    {'option':'100ms',value:'100'},
-    {'option':'200ms',value:'200'},
-    {'option':'300ms',value:'300'},
-    {'option':'600ms',value:'600'},
-    {'option':'800ms',value:'380'},
-    {'option':'1000ms',value:'1000'},
-    {'option':'1200ms',value:'1200'},
-    {'option':'1500ms',value:'1500'},
-    {'option':'2000ms',value:'2000'},
-    {'option':'3000ms',value:'3000'},
-    {'option':'4000ms',value:'4000'},
-    {'option':'5000ms',value:'5000'}
+    {'option':'0ms',value:0},
+    {'option':'50ms',value:50},
+    {'option':'100ms',value:100},
+    {'option':'200ms',value:200},
+    {'option':'300ms',value:300},
+    {'option':'600ms',value:600},
+    {'option':'800ms',value:380},
+    {'option':'1000ms',value:1000},
+    {'option':'1200ms',value:1200},
+    {'option':'1500ms',value:1500},
+    {'option':'2000ms',value:2000},
+    {'option':'3000ms',value:3000},
+    {'option':'4000ms',value:4000},
+    {'option':'5000ms',value:5000}
 ]
 
 const pause = [
@@ -1392,6 +1495,18 @@ const pause = [
     {'option':'2s',value:'2000ms'},
     {'option':'3s',value:'3000ms'},
     {'option':'5s',value:'5000ms'}
+]
+// x-weak
+// weak
+// medium（默认值）
+// strong 强
+// x-strong X-强
+const breakoption = [
+    {label:'超弱',value:250},
+    {label:'弱',value:500},
+    // {label:'默认',value:'750'},
+    {label:'强',value:1000},
+    {label:'超强',value:1250},
 ]
 const fileterVoices = (voice)=>voices.filter(sp=>sp.Locale==voice)
 
@@ -1405,10 +1520,27 @@ const filteredRoles = (roles)=>{
    return roles_obj.filter(roleObj => roles.includes(roleObj.role));
 }
 
+function filterVoicesByLocaleRoleAndGender(locale, gender,role) {
+    return voices.filter(voice => {
+        const localeMatch = locale ? voice.Locale === locale : true
+        // const roleMatch = role ? (voice.RolePlayList && voice.RolePlayList.includes(role)) : true;
+        const genderMatch = gender ? voice.Gender === gender : true;
+        
+        return localeMatch  && genderMatch;
+    });
+}
+
+
+
 export  {
+    voices,
     language,
     quality,
     styles_obj,
+    roles_obj,
+    roleList,
+    styleList,
+    breakoption,
     volume,
     rate,
     pitch,
@@ -1416,5 +1548,6 @@ export  {
     pause,
     fileterVoices,
     filteredStyles,
-    filteredRoles
+    filteredRoles,
+    filterVoicesByLocaleRoleAndGender
 }

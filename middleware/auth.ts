@@ -3,8 +3,8 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     // const user = useSupabaseUser()
     // console.log(user)
     console.log('已经登录了')
-    if (!session.value) {
-      return navigateTo('/login')
-    }
+    // if (!session.value) {
+    //  // return navigateTo('/login')
+    // }
   })
   

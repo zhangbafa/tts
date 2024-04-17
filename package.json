@@ -16,6 +16,7 @@
     "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
     "nanoid": "^5.0.6",
     "nuxt": "^3.11.1",
+    "quill": "^2.0.0-rc.5",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "zod": "^3.22.4"
