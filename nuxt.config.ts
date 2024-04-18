@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ['@nuxt/ui','@nuxtjs/supabase'],
+  colorMode: {
+    preference: 'light'
+  },
   supabase:{
     redirectOptions: {
       login: '/login',

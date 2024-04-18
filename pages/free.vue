@@ -1,19 +1,4 @@
 <template>
-    <div ref="alert" class="mt-1 w-full relative overflow-hidden text-center rounded-none p-2 text-white  dark:text-gray-300 bg-green-500 dark:bg-gray-900 ring-1 ring-gray-200 dark:ring-gray-800">
-      <div class="flex items-center">
-        <div class="w-0 flex-1">
-          <p class="text-sm font-medium">
-            登录后，文本最大长度为 3000 字符
-          </p>
-        </div>
-        <div class="flex items-center gap-2 flex-shrink-0 mt-0">
-          <button type="button" 
-          @click="handleClose"
-          class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 text-white-500 hover:text-white-600 disabled:text-white-500 dark:text-white-400 dark:hover:text-white-500 dark:disabled:text-white-400 underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white-500 dark:focus-visible:ring-white-400 inline-flex items-center" aria-label="Close"><span class="i-heroicons-x-mark-20-solid flex-shrink-0 h-5 w-5" aria-hidden="true"></span>
-          </button>
-        </div>
-      </div>
-    </div>
   <div class="w-10/12 mt-3 mx-auto mb-5">
     <UCard>
       <template #header>
@@ -47,7 +32,7 @@
         ref="textareaRef"
         @focus="handleFocus"
         :placeholder="placeholder"
-        class="text-gray-800 textarea-h"
+        class="text-gray-800 textarea-h caret-green-600 dark:caret-white"
         v-model="state.content"
       />
       <template #footer v-if="show">
@@ -159,6 +144,17 @@ const handleClose=()=>{
 useSeoMeta({
   title:'免费文本转语音-ttsbox'
 })
+
+setTimeout(() => {
+  toast.add({
+    title:'系统提示',
+    description:'登录后，文本长度提升为 3000 字符',
+    color: 'red',
+    icon:'i-heroicons-bell-alert-solid',
+    timeout: 5000
+    
+  })
+}, 2000);
 const placeholder=
 `请输入您的文本
 

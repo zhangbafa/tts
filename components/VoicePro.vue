@@ -14,8 +14,8 @@
             </div>
           </template>
   
-          <div class="flex justify-start" style="width: 88vw">
-              <div class="w-auto max-w-52 h-full  border-r border-slate-100 p-2" >
+          <div class="flex justify-start relative" style="width: 88vw">
+              <div class="w-auto max-w-52 h-full p-2" >
               <UFormGroup label="语言" name="name" class="mb-3">
               <USelectMenu
                 searchable
@@ -60,16 +60,21 @@
                       重置
                   </Ulink>
               </div>
+              <!--  -->
+              <div class="absolute bottom-1 text-xs text-gray-300 dark:text-gray-700">
+                即将支持：OpenAI
               </div>
-              <div class="p-4 px-6 bg-gray-100" style="width:100%;height: 75vh;overflow-y: auto;">
+              <!--  -->
+              </div>
+              <div class="p-4 px-6 bg-gray-100 dark:bg-black" style="width:100%;height: 75vh;overflow-y: auto;">
                   <div class="grid grid-cols-4 md:grid-cols-4 sm:grid-cols-2 gap-4">
                       <UCard v-for="item in voiceList" :key="item.ShortName" :ui="{shadow:'shadow hover:shadow-2xl'}" class="relative text-center cursor-pointer ucard">
                           <UAvatar
-                              src="http://img.ttbaojia.com/emoji/slightly_smiling_face_3d.png"
+                              src="/slightly_smiling_face_3d.png"
                               alt="Avatar" 
                               size="3xl"
                           />
-                         <div class="m2-6 text-sm font-bold text-gray-700">
+                         <div class="m2-6 text-sm font-bold text-gray-700 dark:text-gray-400">
                           {{ item.LocalName }} ({{ item.Gender=='Female'?'女':'男' }})
                          </div>
                           <div class="text-left text-xs text-gray-500 pt-4">
