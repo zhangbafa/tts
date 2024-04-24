@@ -1,6 +1,6 @@
 <template>
     <footer class="relative">
-        <div class="border-t border-gray-200 dark:border-gray-800">
+        <div class="border-t border-gray-200 dark:border-gray-800 ">
         <div
              class="mx-auto px-4 sm:px-6 lg:px-8 mw-11/12 py-8 lg:py-4 lg:flex lg:items-center lg:justify-between lg:gap-x-3">
             <div class="lg:flex-1 flex items-center justify-center lg:justify-end gap-x-1.5 lg:order-3">

@@ -60,20 +60,20 @@ export function useSpeech() {
     // 角色扮演
     const role = state.role ? ` role="${state.role}"` : "";
     // 段落静音
-    const silence = state.silence ? ` value="${state.silence}"` : "";
-    // 语速
-    const rate =  ` rate="${state.rate}%"` 
-    // 音调
-    const pitch =  ` pitch="${(state.pitch)}%"` 
-    // 音量
-    const volume = ` volume="${(state.volume)}"`
+    // const silence = state.silence ? ` value="${state.silence}"` : "";
+    const silence = state.silence
+
+    const rate = ` rate="${state.rate>0?'+':state.rate}.00%"`;
+      // 音调(高)
+      const pitch = ` pitch="${state.pitch>0?'+':''}${state.pitch}.00%"`;
+      // 音量
+      const volume = ` volume="${state.volume}"`;
     // 截取试听的文本
     const content = demo ? state.content.slice(0,demoLen):state.content
 
     // 构建 ssml
     const ssml = `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
-      <voice name="${state.voice}">
-        <mstts:silence type="Tailing-exact"${silence}/>
+      <voice name="${state.voice.shortName}">
         <mstts:express-as${style}${role}>
           <prosody${rate}${pitch}${volume}>
             ${content}

@@ -1,7 +1,7 @@
 <template>
     <div v-if="show">
         <USelectMenu
-              v-model="style"
+              v-model="model"
               :options="VoiceStyleList"
               placeholder="角色扮演"
               value-attribute="value"
@@ -24,7 +24,7 @@ const VoiceStyleList = ref([])
 watch(()=>props.voice,()=>{
     const [zhubo] = voices.filter(item=>item.ShortName==props.voice)
     
-    if(zhubo.RolePlayList){
+    if(zhubo?.RolePlayList){
         show.value = true
         // const temp = [...new Set([...zhubo.StyleList,'default'])]
         const temp = zhubo.RolePlayList

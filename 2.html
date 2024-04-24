@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Insert Text in Editable Div</title>
+<style>
+  .editable {
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+  break {
+  color: rgb(227, 10, 10);
+  user-select: none;
+  display: inline-block;
+  /* position: relative; */
+  /* letter-spacing: 10px; */
+
+ /* letter-spacing: var(--grail-pure-ssml-editor-tag-letter-spacing);
+    color: var(--grail-pure-ssml-editor-tag-font-color);
+    border-radius: var(--grail-pure-ssml-editor-tag-radius); */
+    vertical-align: middle;
+    /* font-size: 10px; */
+   
+    /* background-color: white; */
+    /* border-radius: 4px; */
+    color: #e61414;
+    /* margin-right: 4px; */
+    /* margin: 0 10px; */
+    /* width: 100px; */
+    /* padding:  0 4px; */
+}
+[time]::before {
+  /* 在这里设置针对 alt="10s" 的样式 */
+  content: attr(time);
+  border-radius: 4px;
+  /* transform: scale(0.5); 
+  transition: scale(0.5); */
+  /* font-size: 12px; */
+  background: rgb(47, 255, 0);
+  /* margin: 0 4px; */
+  /* padding: 0 4px; */
+  /* padding: 0 10px;
+  width: 40px; */
+}
+</style>
+</head>
+<body>
+    <div>This is an editable div. Click the button to insert</div>
+<div id="editable" class="editable" contenteditable="true" oninput="console.log('s')">This is an editable div. Click the button to insert #hello#.</div>
+<button id="insertBtn">Insert Text</button>
+<button id="getcontent">getcontent</button>
+<script>
+document.getElementById('getcontent').addEventListener('click', function() {
+    const content = document.getElementById('editable').innerText
+    console.log(content)
+})
+document.getElementById('insertBtn').addEventListener('click', function() {
+  var selection = window.getSelection();
+  console.log(selection)
+  var range = selection.getRangeAt(0);
+  console.log(range)
+  var editableDiv = document.querySelector('.editable');
+
+
+  // Check if the range is within the editable div
+//   document.execCommand('insertTex0t', false, '#hello#');
+  if (editableDiv.contains(range.startContainer) && editableDiv.contains(range.endContainer)) {
+    // document.execCommand('insertText', false, '#hello#');
+    
+    var textNode = document.createTextNode('break');
+    // textNode.setAttribute('time',1000)
+    // textNode.innerText=''
+    // textNode.innerHTML='09'
+    range.insertNode(textNode);
+
+    // 创建一个新的 Range 对象
+    var newRange = document.createRange();
+
+    // 设置新 Range 的起始和结束位置为插入的文本节点之后
+    newRange.setStartAfter(textNode);
+    newRange.collapse(false); // 将光标折叠到起始位置
+
+    // 获取当前的选区对象
+    var selection = window.getSelection();
+
+    // 清除之前的选区
+    selection.removeAllRanges();
+
+    // 将新的 Range 对象添加到选区中
+    selection.addRange(newRange);
+    
+//     const selection = window.getSelection();
+// if (selection.rangeCount > 0) {
+//   const range = selection.getRangeAt(0);
+
+//   // Create a self-closing element
+//   const breakElement = document.createElement('break');
+//   breakElement.setAttribute('time',1000)
+
+//   // Insert the element at the current selection
+//   range.insertNode(breakElement);
+
+//   // Restore the selection after insertion
+//   range.setStartAfter(breakElement);
+//   range.setEndAfter(breakElement);
+
+//   // Collapse the selection to the end of the range
+//   selection.removeAllRanges();
+//   selection.addRange(range);
+// }
+
+  } else {
+    alert('Please place the cursor inside the editable div.');
+  }
+});
+</script>
+</body>
+</html>

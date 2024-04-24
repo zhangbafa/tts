@@ -1,17 +1,18 @@
 <template>
   <USelectMenu
-              v-model="volume"
+              v-model="value"
               :options="items"
               placeholder="请选择音量"
               value-attribute="value"
               option-attribute="option"
               @change="handleChange"
+              :ui="{container: 'z-100 group',}"
             />
 </template>
 
 <script setup>
 const volume = ref('default')
-const value = defineModel()
+const value = defineModel('default')
 
 
 // 音量
@@ -24,13 +25,13 @@ const value = defineModel()
 // x-loud 超大声
 //  默认
 const items = [
-    {'option':'音量:默认',value: 'default' },
-    {'option':'音量:静音',value: 'silent' },
-    {'option':'音量:超轻',value: 'x-soft' },
-    {'option':'音量:轻',value: 'soft' },
-    {'option':'音量:中等',value: 'medium' },
-    {'option':'音量:大声',value: 'loud' },
-    {'option':'音量:超大声',value: 'x-loud' }
+    {'option':'🔈默认',value: 'default' },
+    {'option':'🔈静音',value: 'silent' },
+    {'option':'🔈超轻',value: 'x-soft' },
+    {'option':'🔈轻',value: 'soft' },
+    {'option':'🔈中等',value: 'medium' },
+    {'option':'🔈大声',value: 'loud' },
+    {'option':'🔈超大声',value: 'x-loud' }
 ]
 
 

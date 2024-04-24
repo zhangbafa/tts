@@ -1,6 +1,6 @@
 <template>
     <header class="bg-background/75 backdrop-blur border-b border-gray-200 dark:border-gray-800 -mb-px sticky top-0 z-50">
-        <div class="mx-auto px-2 sm:px-6 lg:px-8 w-11/12 flex items-center justify-between gap-3 h-16">
+        <div class="mx-auto px-2 sm:px-6 lg:px-8 w-12/12 flex items-center justify-between gap-3 h-16">
             <div class="lg:flex-1 flex items-center gap-1.5">
                 <NuxtLink
                 to="/"

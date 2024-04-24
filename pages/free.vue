@@ -7,8 +7,8 @@
             <VoicePro v-model="state.voice" class="mr-4"/>
           </div>
           <div class="flex justify-start rounded-lg bg-slate-100 dark:bg-gray-800 p-1 mr-2" v-show="show">
-            <StylePro :voice="state.voice" v-model="state.style" class="mr-4"/>
-            <RolePro :voice="state.voice" v-model="state.role" class=""/>
+            <StylePro :voice="state.voice.shortName" v-model="state.style" class="mr-4"/>
+            <RolePro :voice="state.voice.shortName" v-model="state.role" class=""/>
           </div>
           <div class="flex justify-start rounded-lg bg-slate-100 dark:bg-gray-800 p-1 mr-2" v-if="show">
               <SpeedPro v-model="state.rate" />
@@ -69,6 +69,7 @@
         
       </template>
     </UCard>
+    
   </div>
 </template>
 <script setup lang="ts">
@@ -77,17 +78,20 @@ const {contentLength,download,generate2speech} = useSpeech()
 const show = ref(false)
 const audiosource = ref('')
 const state = reactive({
-  voice: "",
+  voice: { shortName: "", localName: "" },
   style: '',
   role: '',
   rate: 0,
   volume: 'medium',
   pitch: 0,
-  silence: 300,
+  silence: [],
   content: '',
   quality: 3,
 })
 
+watch(()=>state.silence,()=>{
+ console.log(state.silence)
+})
 
 watch(()=>state.voice,()=>{
   show.value = true

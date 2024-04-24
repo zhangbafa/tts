@@ -23,6 +23,8 @@ const textToSpeech = async (key:string, region:string, ssml:string, filename:str
         synthesizer.speakSsmlAsync(
             ssml,
             result => {
+                console.log(result.reason)
+                console.log(ssml)
                 if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
                     console.log("SynthesizingAudioCompleted result");
                     const { audioData } = result;

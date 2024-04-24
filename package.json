@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/ui": "^2.15.1",
     "@vueuse/core": "^10.9.0",
+    "animate.css": "^4.1.1",
     "dayjs": "^1.11.10",
     "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
     "nanoid": "^5.0.6",
