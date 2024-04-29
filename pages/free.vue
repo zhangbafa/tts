@@ -20,7 +20,7 @@
               <BreakPro class="mx-1" v-model="state.content"/>
               <!-- 适用于输入文本的开头或结尾，或者两个相邻句子的分界处 -->
               <SilencePro class="mx-1" v-model="state.silence"/>
-              <UTooltip text="调节段落（换行）的停顿时间。默认300ms,听感最自然">
+              <UTooltip text="在文本前后或两个相邻句子之间插入暂停">
                 <UIcon name="i-heroicons-question-mark-circle-20-solid" class="text-gray-500"/>
               </UTooltip>
           </div>
@@ -149,18 +149,9 @@ useSeoMeta({
   title:'免费文本转语音-ttsbox'
 })
 
-setTimeout(() => {
-  toast.add({
-    title:'系统提示',
-    description:'登录后，文本长度提升为 3000 字符',
-    color: 'red',
-    icon:'i-heroicons-bell-alert-solid',
-    timeout: 5000
-    
-  })
-}, 2000);
 const placeholder=
-`请输入您的文本
+`请输入您的文本 「 登录后，文本长度提升为 3000 字符 」
+
 
 专业版即将上线，敬请期待 ！！！
 

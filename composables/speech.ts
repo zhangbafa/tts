@@ -55,13 +55,19 @@ export function useSpeech() {
       return false
     }
 
+    // 静音
+    let silence = ''
+    if(state.silence.length>0){
+      state.silence.map((item:any)=>{
+        silence+=` ${item.name}="${item.value}ms" `
+      })
+    }
+
     // 说话风格
     const style = state.style ? ` style="${state.style}"` : "";
     // 角色扮演
     const role = state.role ? ` role="${state.role}"` : "";
-    // 段落静音
-    // const silence = state.silence ? ` value="${state.silence}"` : "";
-    const silence = state.silence
+  
 
     const rate = ` rate="${state.rate>0?'+':state.rate}.00%"`;
       // 音调(高)
@@ -73,7 +79,7 @@ export function useSpeech() {
 
     // 构建 ssml
     const ssml = `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
-      <voice name="${state.voice.shortName}">
+      <voice name="${state.voice.shortName}"${silence}>
         <mstts:express-as${style}${role}>
           <prosody${rate}${pitch}${volume}>
             ${content}
@@ -81,7 +87,6 @@ export function useSpeech() {
         </mstts:express-as>
       </voice>
     </speak>`;
-    console.log(ssml)
     // responseType:'arrayBuffer',
     const data:resultSpeech = await $fetch('/api/tts', {
       method: 'post',
