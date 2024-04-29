@@ -32,7 +32,7 @@
         ref="textareaRef"
         @focus="handleFocus"
         :placeholder="placeholder"
-        class="text-gray-800 textarea-h caret-green-600 dark:caret-white"
+        class="text-gray-800 textarea-h caret-green-600 dark:caret-white dark:text-gray-400"
         v-model="state.content"
       />
       <template #footer v-if="show">

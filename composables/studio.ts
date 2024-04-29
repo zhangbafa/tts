@@ -86,9 +86,13 @@ export function useStudio() {
       // 角色扮演
       const role = item.role ? ` role="${item.role}"` : "";
       // 段落静音
-      const silence = item.silence
-      // 语速 ${item.rate>0?'+':''}${item.rate}.00
-      // const rate = ` rate="${item.rate}%"`;
+      // const silence = item.silence
+      let silence = ''
+      if(item.silence.length>0){
+        item.silence.map((item:any)=>{
+          silence+=` ${item.name}="${item.value}ms" `
+        })
+      }
       const rate = ` rate="${item.rate>0?'+':item.rate}.00%"`;
       // 音调(高)
       const pitch = ` pitch="${item.pitch>0?'+':''}${item.pitch}.00%"`;
