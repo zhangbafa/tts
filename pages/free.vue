@@ -1,5 +1,5 @@
 <template>
-  <div class="w-10/12 mt-3 mx-auto mb-5">
+  <div class="w-11/12 mt-3 mx-auto mb-5">
     <UCard>
       <template #header>
         <div class="flex justify-start items-center">
@@ -150,7 +150,7 @@ useSeoMeta({
 })
 
 const placeholder=
-`请输入您的文本 「 登录后，文本长度提升为 3000 字符 」
+`请输入您的文本 「 专业版，文本长度提升为 3000 字符 」
 
 
 专业版即将上线，敬请期待 ！！！

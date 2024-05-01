@@ -13,5 +13,5 @@ watch(user, () => {
 </script>
 
 <template>
-  <div class="text-sm text-gray-600 p-2">Waiting for login...</div>
+  <div class="text-sm text-gray-600 p-4 ">Waiting for login...</div>
 </template>

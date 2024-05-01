@@ -1189,7 +1189,7 @@ const voices = [
     ShortName: "Shimmer",
     Gender: "Male",
     Provider: "openai",
-  }*/
+}*/
 ];
 
 const language = [

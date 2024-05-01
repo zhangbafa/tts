@@ -49,12 +49,16 @@ export function useStudio() {
    */
   type resultSpeech = z.infer<typeof speechSchema>;
   // 定义下载处理函数
-  const download = (ext:number,url:string):void => {
+  const download = (ext:number,url:string,filename:string=''):void => {
     let file_ext = 'mp3';
     if (ext === 14) file_ext = 'wav';
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${new Date().getTime()}.${file_ext}`;
+    if(filename){
+      link.download = `${filename}.${file_ext}`;
+    }else{
+      link.download = `${new Date().getTime()}.${file_ext}`;
+    }
     document.body.append(link);
     link.click();
     link.remove();

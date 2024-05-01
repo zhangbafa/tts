@@ -104,7 +104,7 @@ const signInWithOAuth = async () => {
       </template>
     </UButton>
     <div class="mt-6 mb-6">
-    <UDivider label="or"/>
+    <UDivider label="OR"/>
   </div>
   <UButton
     icon="i-simple-icons-github"

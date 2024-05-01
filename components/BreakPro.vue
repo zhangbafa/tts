@@ -50,10 +50,11 @@
 
 <script setup>
 import { breakoption } from "@/utils/data";
+import { useClipboard } from '@vueuse/core';
 const toast = useToast();
 const volume = ref(750);
 const value = defineModel();
-
+const { text, copy, copied, isSupported } = useClipboard({ value })
 const handleincr = () => {
     volume.value++;
 };
@@ -70,9 +71,9 @@ const handleSelect = (val) => {
 
 const handleComfirm = () => {
     const textarea = document.querySelector("#textarea");
-
-    insertTextAtCursor(volume.value, textarea);
-    toast.add({ title: "插入成功", timeout: 500 });
+    const text = `<break time="${volume.value}ms">`;
+    copy(text)
+    toast.add({ title: "复制成功,可插入到对应位置", timeout: 500 });
 };
 function insertTextAtCursor(time, textarea) {
     // const activeElement = document.activeElement;

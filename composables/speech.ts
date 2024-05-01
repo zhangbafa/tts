@@ -8,11 +8,11 @@ export function useSpeech() {
   // 最大文本长度
   // 登录后 3000
   // 未登录 500
-  let contentLength = 500
-  const user = useSupabaseUser()
-  if(user.value){
-    contentLength = 3000
-  }
+  let contentLength = 200
+  // const user = useSupabaseUser()
+  // if(user.value){
+  //   contentLength = 3000
+  // }
   const speechSchema = z.object({
     code: z.number(),
     url: z.object({
