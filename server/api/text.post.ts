@@ -9,8 +9,8 @@ export default defineEventHandler(async (event) => {
     const key = process.env.SPEECH_KEY as string
     const region = process.env.SPEECH_REGION as string
 
-    const result = await textToSpeech(key,region,body.ssml,'','')
-    return result
+    // const result = await textToSpeech(key,region,body.ssml,'','')
+    return body
 })
 
 
