@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     const region = process.env.SPEECH_REGION as string
     const speechConfig = sdk
     // const result = await textToSpeech(key,region,body.ssml,'','')
-    return speechConfig
+    return JSON.stringify(sdk)
 })
 
 
