@@ -1,0 +1,9 @@
+name = "playground" # 将显示在Cloudflare Workers中的项目名称
+main = "./.output/server/index.mjs"
+workers_dev = true
+compatibility_date = "2024-05-07"
+account_id = "e6e78b4747cb9b64234f815a760e46c2" # npx wrangler whoiam命令可查看account_id
+#route = "<mainly useful when you want to setup custom domains (optional too)>" # 可选的,如果不需要请删除该项
+
+[site]
+bucket = ".output/public"

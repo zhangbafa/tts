@@ -13,16 +13,20 @@
     "@nuxt/ui": "^2.15.1",
     "@vueuse/core": "^10.9.0",
     "animate.css": "^4.1.1",
+    "bufferutil": "^4.0.8",
     "dayjs": "^1.11.10",
     "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
     "nanoid": "^5.0.6",
     "nuxt": "^3.11.1",
     "quill": "^2.0.0-rc.5",
+    "utf-8-validate": "^5.0.10",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
+    "ws": "^8.17.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@nuxtjs/supabase": "^1.2.0"
+    "@nuxtjs/supabase": "^1.2.0",
+    "wrangler": "^3.53.1"
   }
 }

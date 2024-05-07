@@ -29,4 +29,24 @@
            class="absolute inset-0 landing-grid z-[-1] [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
       </div>
   </div>
-</div></template>
+</div>
+<button @click="sse">click</button>
+<div>
+  <div v-for="item in list">{{ item }}</div>
+</div>
+</template>
+<script setup>
+const list = ref([])
+let eventSource = null
+const sse=()=>{
+  eventSource =  new EventSource('http://localhost:3000/api/sse')
+    eventSource.onmessage = (event) => {
+      list.value.push(event.data)
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+}
+
+onUnmounted(()=>{
+  eventSource.close()
+})
+</script>
