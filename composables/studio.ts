@@ -12,7 +12,7 @@ export function useStudio() {
       pitch: 0,
       volume: "default",
       silence: [],
-      content: ["登录可获得更多的免费字符数"],
+      content: [""],
     },
   ]);
   const totalContentLength = computed(() => {
