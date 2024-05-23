@@ -1,16 +1,11 @@
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 import { PassThrough } from 'stream'
 export default defineEventHandler(async (event) => {
-    // const body = await readBody(event)
-    const body={
-        ssml:'<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN"><voice name="wuu-CN-XiaotongNeural"><mstts:express-as><prosody rate="0.00%" volume="default" pitch="0.00%">登录可获得更多的免费字符数</prosody></mstts:express-as></voice></speak>'
-        
-    }
+    const body = await readBody(event)
     const key = process.env.SPEECH_KEY as string
     const region = process.env.SPEECH_REGION as string
-    const speechConfig = sdk
-    // const result = await textToSpeech(key,region,body.ssml,'','')
-    return JSON.stringify(sdk)
+    const result = await textToSpeech(key,region,body.ssml,'','')
+    return result
 })
 
 

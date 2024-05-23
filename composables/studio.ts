@@ -30,11 +30,11 @@ export function useStudio() {
   // 最大文本长度
   // 登录后 3000
   // 未登录 500
-  let contentLength = 500
-  const user = useSupabaseUser()
-  if(user.value){
-    contentLength = 3000
-  }
+  let contentLength = 3000
+  // const user = useSupabaseUser()
+  // if(user.value){
+  //   contentLength = 3000
+  // }
   const speechSchema = z.object({
     code: z.number(),
     url: z.object({
@@ -124,7 +124,6 @@ export function useStudio() {
       tempStr+=formatSSML(item,content_index)
     })
     const result = `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN">${tempStr}</speak>`
-  console.log(result)
   return result
   }
 
