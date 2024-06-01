@@ -11,10 +11,11 @@
                
                     <div class="flex justify-start items-center">
                         <div>
-                            <img src="/logo.png"
-                                 style="width: 35px; margin-right: 15px" />
+                            <img src="/logo3.png"
+                                 style="width: 30px; margin-right: 8px" />
+
                         </div>
-                        <div>TTSbox</div>
+                        <div>灵研</div>
                     </div>
                
             </NuxtLink>
